@@ -32,10 +32,10 @@ public class ItemRepository {
         String query = "INSERT INTO ITEM VALUES(?,?,?)";
         return template.update(query,id,name,category);
     }
-    
-    public int updateItem(int id,String name,String category,int id1){
-        String query = "UPDATE ITEM SET id =?, name =?, category =? WHERE ID =?";
-        return template.update(query,id,name,category,id1);
+    // Corrected update query
+    public int updateItem(String name,String category, int id){
+        String query = "UPDATE ITEM SET name =?, category =? WHERE ID =?";
+        return template.update(query,name,category,id);
     }
 
     public int deleteItem(int id){
